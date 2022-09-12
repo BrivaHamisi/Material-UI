@@ -12,12 +12,11 @@ export default function Create() {
         Create a new Note
       </Typography>
 
-      <Button sx={{fontSize: 60, backgroundColor: "violet", '&:hover': {backgroundColor:'blue'}}}
-color="secondary"
+      <Button
       onClick={
         () => console.log('You Clicked Me')
       }
-       type='submit' variant='contained' endIcon={<KeyboardArrowRightIcon/>}>
+       type='submit'color='secondary' variant='contained' endIcon={<KeyboardArrowRightIcon/>}>
         Submit
       </Button>
 
