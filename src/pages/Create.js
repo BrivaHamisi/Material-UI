@@ -5,10 +5,15 @@ import { Container } from '@mui/material';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
+import { styled } from '@mui/material/styles';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
 
-import { styled } from '@mui/material/styles'
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
-const MyField = styled(TextField)({
+const MyField = styled(TextField, RadioGroup)({
   marginTop: 20,
   marginBottom: 20,
   display: 'block',
@@ -22,6 +27,8 @@ const [details, setDetails] = useState("")
 
 const [titleError, setTitleError] = useState(false)
 const [detailsError, setDetailsError] = useState(false)
+
+const [category, setCategory] = useState('todos')
 
 const handleSubmit = (e) =>{
   e.preventDefault()
@@ -38,7 +45,7 @@ const handleSubmit = (e) =>{
   }
 
   if (title && details){
-    console.log(title, details)
+    console.log(title, details, category)
   }
 }
 
@@ -58,6 +65,19 @@ const handleSubmit = (e) =>{
       onChange={(e)=> setDetails(e.target.value)}
         label='Details' variant='outlined' color='secondary' fullWidth required multiline rows={5} error={detailsError}
         />
+
+        <FormControl>
+          <FormLabel color='secondary'>
+            Note Category
+          </FormLabel>
+          <RadioGroup value={category} onChange={(e)=> setCategory(e.target.value)}>
+          <FormControlLabel value='money' control={<Radio color='secondary'/>} label='Money'/>
+          <FormControlLabel value='todos' control={<Radio color='secondary'/>} label='Todos'/>
+          <FormControlLabel value='reminders' control={<Radio color='secondary'/>} label='Reminders'/>
+          <FormControlLabel value='work' control={<Radio color='secondary'/>} label='Work'/>
+        </RadioGroup>
+
+        </FormControl>
         <Button
       onClick={
         () => console.log('You Clicked Me')
