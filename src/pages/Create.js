@@ -13,7 +13,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-const MyField = styled(TextField, RadioGroup)({
+const MyField = styled(TextField)({
   marginTop: 20,
   marginBottom: 20,
   display: 'block',
@@ -66,7 +66,11 @@ const handleSubmit = (e) =>{
         label='Details' variant='outlined' color='secondary' fullWidth required multiline rows={5} error={detailsError}
         />
 
-        <FormControl>
+        <FormControl sx={{
+          marginTop: 2,
+          marginBottom: 2,
+          display: 'block',
+        }}>
           <FormLabel color='secondary'>
             Note Category
           </FormLabel>
