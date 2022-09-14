@@ -7,6 +7,7 @@ import { DeleteOutlined } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import { green, pink, yellow, blue} from '@mui/material/colors';
+import Masonry from 'react-masonry-css';
 
 export default function NoteCard({ note, handleDelete }) {
   const ylow = yellow[700]; 
