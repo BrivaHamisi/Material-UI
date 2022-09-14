@@ -8,6 +8,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { AddCircleOutlineOutlined, SubjectOutlined } from '@mui/icons-material';
 import { useHistory, useLocation } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import { format } from 'date-fns'
 
 const drawerWidth = 240
 
@@ -31,7 +34,15 @@ const useStyles = makeStyles((theme)=> {
           },
           title: {
             padding: theme.spacing(2)
-          }
+          },
+          appBar: {
+            width: `calc(100% - ${drawerWidth}px)`,
+            marginLeft: drawerWidth,
+          },
+          date: {
+            flexGrow: 1
+          },
+          toolbar: theme.mixins.toolbar
     }
 })
 
@@ -56,7 +67,16 @@ export default function Layout({children}) {
   return (
     <div className={classes.root}>
         {/* app bar */}
-      <div>app bar</div>
+      <AppBar elevation={0} style = {{width: `calc(100% - ${drawerWidth}px)`}}>
+        <Toolbar>
+          <Typography className={classes.date}>
+            Today is the { format(new Date(), 'do MMMM Y') }
+          </Typography>
+          <Typography>
+            Briva Hamisi
+          </Typography>
+        </Toolbar>
+      </AppBar>
       
       {/* side drawer */}
       <Drawer sx ={{
@@ -83,6 +103,7 @@ export default function Layout({children}) {
 
       {/* main content */}
         <div className={classes.page}>
+          <div className={classes.toolbar}></div>
             {children}
         </div>
     </div>
