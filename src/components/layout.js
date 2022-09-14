@@ -10,7 +10,8 @@ import { AddCircleOutlineOutlined, SubjectOutlined } from '@mui/icons-material';
 import { useHistory, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { format } from 'date-fns'
+import { format } from 'date-fns';
+import Avatar from '@mui/material/Avatar';
 
 const drawerWidth = 240
 
@@ -41,6 +42,9 @@ const useStyles = makeStyles((theme)=> {
           },
           date: {
             flexGrow: 1
+          },
+          avatar:{
+            marginLeft: theme.spacing(2)
           },
           toolbar: theme.mixins.toolbar
     }
@@ -75,6 +79,7 @@ export default function Layout({children}) {
           <Typography>
             Briva Hamisi
           </Typography>
+        <Avatar src='/hamisi-av.png' className={classes.avatar}/>
         </Toolbar>
       </AppBar>
       
