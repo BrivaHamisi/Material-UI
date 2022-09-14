@@ -4,31 +4,35 @@ import Drawer from '@mui/material/Drawer';
 import Typography from '@mui/material/Typography'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
 import { AddCircleOutlineOutlined, SubjectOutlined } from '@mui/icons-material';
 import { useHistory, useLocation } from 'react-router-dom';
 
 const drawerWidth = 240
 
-const useStyles = makeStyles({
-  page: {
-    background: '#f9f9f9',
-    width: '100%'
-  },
-  root: {
-    display: 'flex',
-  },
-  drawer:{
-    
-    variant: 'permanent',
-    anchor: 'left'
-  },
-  active: {
-    background: '#f4f4f4'
-  }
+const useStyles = makeStyles((theme)=> {
+    return {
+        page: {
+            background: '#f9f9f9',
+            width: '100%',
+            padding: theme.spacing(3)
+          },
+          root: {
+            display: 'flex',
+          },
+          drawer:{
+            
+            variant: 'permanent',
+            anchor: 'left'
+          },
+          active: {
+            background: '#f4f4f4'
+          },
+          title: {
+            padding: theme.spacing(2)
+          }
+    }
 })
 
 export default function Layout({children}) {
@@ -60,7 +64,7 @@ export default function Layout({children}) {
       }} variant="permanent"
         anchor="left">
         <div>
-            <Typography variant='h5'>
+            <Typography className ={classes.title} variant='h5'>
                 Write Notes
             </Typography>
         </div>
